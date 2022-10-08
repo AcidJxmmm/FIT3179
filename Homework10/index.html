@@ -9,6 +9,7 @@
   <div id="vis"/>
   <script>
     const spec = {
+  {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
     "url": "https://raw.githubusercontent.com/AcidJxmmm/FIT3179/main/Homework10/data/US_Lightning_Forest_Fires.csv"
@@ -38,6 +39,7 @@
             "color": {
               "field": "FIRE_SIZE",
               "type": "quantitative",
+              "title": "Fire Size",
               "scale": {
                 "type": "threshold",
                 "domain": [1, 1000, 50000, 100000, 500000],
@@ -45,20 +47,18 @@
               }
             },
             "tooltip": [
-              {"field": "Fire_Date", "type": "temporal"},
-              {"field": "FIRE_SIZE", "type": "quantitative"},
-              {"field": "STATE", "type": "nominal"}
+              {"field": "Fire_Date", "type": "temporal", "title": "Fire Date"},
+              {"field": "FIRE_SIZE", "type": "quantitative", "title": "Fire Size"},
+              {"field": "STATE", "type": "nominal", "title": "State"}
             ]
           },
-          "layer": [
-            {"mark": {"type": "circle", "opacity": 0.4, "size": 15}}
-          ]
+          "layer": [{"mark": {"type": "circle", "opacity": 0.4, "size": 15}}]
         }
       ]
     },
     {
       "width": "container",
-      "height": 60,
+      "height": 120,
       "mark": "line",
       "title": "Use this line chart to filter out the data based on time",
       "params": [
@@ -75,36 +75,10 @@
         },
         "y": {
           "aggregate": "count",
-          "axis": {"tickCount": 3, "grid": false},
+          "axis": {"tickCount": 4, "grid": false},
           "title": "Count"
-        }
-      }
-    },
-    {
-      "width": "container",
-      "transform": [
-        {
-          "bin": {"step": 1000, "extent": [0.1, 500000]},
-          "field": "FIRE_SIZE",
-          "as": "magnitude"
-        }
-      ],
-      "mark": "area",
-      "encoding": {
-        "x": {
-          "field": "Fire_Date",
-          "timeUnit": "yearmonth",
-          "scale": {"domain": {"param": "time_brush"}},
-          "axis": {"title": "", "tickCount": 5, "grid": false}
         },
-        "y": {"aggregate": "count", "title": "Count"},
-        "color": {
-          "field": "magnitude",
-          "scale": {
-            "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#bd0026", "#7f0000"]
-          },
-          "legend": null
-        }
+         "tooltip": [{"aggregate": "count", "title": "Count"}]
       }
     }
   ],
