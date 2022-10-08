@@ -47,7 +47,7 @@
               }
             },
             "tooltip": [
-              {"field": "Fire_Date", "type": "temporal", "title": "Fire Date"},
+              {"field": "Fire_Date", "type": "temporal", "title": "Date"},
               {"field": "FIRE_SIZE", "type": "quantitative", "title": "Fire Size"},
               {"field": "STATE", "type": "nominal", "title": "State"}
             ]
@@ -58,7 +58,7 @@
     },
     {
       "width": "container",
-      "height": 120,
+      "height": 150,
       "mark": "line",
       "title": "Use this line chart to filter out the data based on time",
       "params": [
@@ -78,7 +78,7 @@
           "axis": {"tickCount": 4, "grid": false},
           "title": "Count"
         },
-         "tooltip": [{"aggregate": "count", "title": "Count"}]
+         "tooltip": [{"aggregate": "count", "title": "Number of Fire"}]
       }
     }
   ],
