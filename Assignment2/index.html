@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
+
+    <!-- Implement CSS -->
+    <link rel="stylesheet" media="screen" href="css/style.css" />
+
+    <!-- Implement Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="page">
+        <h1> Lightning-sparked Forest Fires In USA (1992-2010)</h1>
+        <div id="vis1" class="vis-container"></div>
+        <div id="vis2" class="vis-container"></div>
+
+        <div class="row">
+            <div class="column">
+                <div id="vis3" class="vis-container"></div>
+            </div>
+            <div class="column">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var specVis1 = "1_line.vg.json";
+        vegaEmbed('#vis1', specVis1, { "actions": false });
+
+        var specVis2 = "2_map_slider.vg.json";
+        vegaEmbed('#vis2', specVis2, { "actions": false });
+
+        var specVis3 = "3_area_line.vg.json";
+        vegaEmbed('#vis3', specVis3, { "actions": false });
+
+        // var specVis3 = "3_properties.vg.json";
+        // vegaEmbed('#vis3', specVis3);
+
+        // var specVis4 = "4_small_multiples.vg.json";
+        // vegaEmbed('#vis4', specVis4);
+    </script>
+</body>
+
+</html>
