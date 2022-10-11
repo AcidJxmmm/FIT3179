@@ -1,0 +1,62 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: rgb(131, 58, 180);
+    background: radial-gradient(circle, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
+
+p {
+    font-size: 15px;
+}
+
+div#page {
+    background-color: white;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    padding-bottom: 20px;
+
+    border-radius: 25px;
+}
+
+div h1 {
+    padding-top: 40px;
+    text-align: center;
+}
+
+div#vis1 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+div#vis2 {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+div#vis3 {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column p {
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+}
