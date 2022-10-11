@@ -1,0 +1,130 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A dual axis chart, created by setting y's scale resolution to `\"independent\"`",
+    "width": 400,
+    "height": 300,
+    "data": {
+        "url": "https://raw.githubusercontent.com/AcidJxmmm/FIT3179/main/Assignment2/database/US_Lightning_Forest_Fires_2010.csv"
+    },
+    "encoding": {
+        "x": {
+            "field": "Fire_Date",
+            "timeUnit": "month",
+            "axis": {
+                "format": "%b",
+                "title": null
+            }
+        }
+    },
+    "layer": [
+        {
+            "mark": {
+                "opacity": 0.3,
+                "type": "area",
+                "color": "#fb6a4a",
+                "interpolate": "monotone"
+            },
+            "encoding": {
+                "y": {
+                    "field": "FIRE_SIZE",
+                    "aggregate": "average",
+                    "title": "Avg. Fire Size",
+                    "axis": {
+                        "titleColor": "#fb6a4a",
+                        "tickCount": 5
+                    }
+                }
+            }
+        },
+        {
+            "mark": {
+                "stroke": "#99000d",
+                "type": "line",
+                "interpolate": "monotone"
+            },
+            "encoding": {
+                "y": {
+                    "aggregate": "average",
+                    "field": "Days_to_extinguish_fire",
+                    "title": "Average Days to Distinguish",
+                    "axis": {
+                        "titleColor": "#99000d",
+                        "values": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "point",
+                "opacity": 0
+            },
+            "encoding": {
+                "y": {
+                    "field": "FIRE_SIZE",
+                    "aggregate": "average",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": null,
+                        "labels": false,
+                        "ticks": false
+                    }
+                },
+                "color": {
+                    "value": "#333"
+                },
+                "tooltip": [
+                    {
+                        "field": "FIRE_SIZE",
+                        "aggregate": "average",
+                        "format": ".2f",
+                        "type": "quantitative",
+                        "title": "Average Fire Size"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "point",
+                "opacity": 0
+            },
+            "encoding": {
+                "y": {
+                    "field": "Days_to_extinguish_fire",
+                    "aggregate": "average",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": null,
+                        "labels": false,
+                        "ticks": false
+                    }
+                },
+                "color": {
+                    "value": "#333"
+                },
+                "tooltip": [
+                    {
+                        "field": "Days_to_extinguish_fire",
+                        "aggregate": "average",
+                        "format": ".1",
+                        "type": "quantitative",
+                        "title": "Average Time to Distinguish"
+                    }
+                ]
+            }
+        }
+    ],
+    "resolve": {
+        "scale": {
+            "y": "independent"
+        }
+    }
+}
