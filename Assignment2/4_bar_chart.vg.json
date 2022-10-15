@@ -37,7 +37,8 @@
         "y": {
             "field": "acres",
             "type": "quantitative",
-            "title": "Acres affected"
+            "title": "Acres affected",
+            "axis": {"titleColor": "#DD571C"}
         },
         "fillOpacity": {
             "condition": {
