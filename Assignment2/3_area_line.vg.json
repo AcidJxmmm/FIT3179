@@ -21,7 +21,7 @@
             "mark": {
                 "opacity": 0.3,
                 "type": "area",
-                "color": "#fb6a4a",
+                "color": "#f56300",
                 "interpolate": "monotone"
             },
             "encoding": {
@@ -30,7 +30,7 @@
                     "aggregate": "average",
                     "title": "Avg. Fire Size",
                     "axis": {
-                        "titleColor": "#fb6a4a",
+                        "titleColor": "#f56300",
                         "tickCount": 5
                     }
                 }
@@ -38,7 +38,7 @@
         },
         {
             "mark": {
-                "stroke": "#99000d",
+                "stroke": "#A1083B",
                 "type": "line",
                 "interpolate": "monotone"
             },
@@ -48,7 +48,7 @@
                     "field": "Days_to_extinguish_fire",
                     "title": "Average Days to Distinguish",
                     "axis": {
-                        "titleColor": "#99000d",
+                        "titleColor": "#A1083B",
                         "values": [
                             0,
                             1,
@@ -114,7 +114,7 @@
                     {
                         "field": "Days_to_extinguish_fire",
                         "aggregate": "average",
-                        "format": ".1",
+                        "format": ".1f",
                         "type": "quantitative",
                         "title": "Average Time to Distinguish"
                     }

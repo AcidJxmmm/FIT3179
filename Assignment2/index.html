@@ -12,20 +12,17 @@
     <!-- Implement Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Implement AOS Interaction-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 </head>
 
 <body>
     <div id="page">
-        <h1> Lightning-sparked Forest Fires In USA (1992-2010)</h1>
-        <div id="vis1" class="vis-container"></div>
-        <div id="vis2" class="vis-container"></div>
-
-        <div class="row">
-            <div class="column">
-                <div id="vis3" class="vis-container"></div>
-            </div>
+        <h1 data-aos="fade-down" data-aos-duration="3200"> Lightning-sparked Forest Fires In USA (1992-2010)</h1>
+        <div class="row" data-aos="fade-down" data-aos-duration="3200">
             <div class="column">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -35,10 +32,59 @@
                     culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </div>
+            <div class="column">
+                <p id="fire-size">As to size of wildfire:</p>
+                <ul>
+                    <li><b style="color: #4a9b79;">Class A</b> - 1/4 acre or less.</li>
+                    <li><b style="color: #cb6527;">Class B</b> - more than 1/4 acre, but less than 10 acres.</li>
+                    <li><b style="color: #7372ae;">Class C</b> - 10 acres or more, but less than 100 acres.</li>
+                    <li><b style="color: #d54188;">Class D</b> - 100 acres or more, but less than 300 acres.</li>
+                    <li><b style="color: #d54188;">Class E</b> - 300 acres or more, but less than 1,000 acres.</li>
+                    <li><b style="color: #d54188;">Class F</b> - 1,000 acres or more, but less than 5,000.</li>
+                    <li><b style="color: #d54188;">Class G</b> - 5,000 acres or more.</li>
+                </ul>
+            </div>
+        </div>
+        <div id="vis1" class="vis-container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1000">
+        </div>
+        <div id="vis2" class="vis-container"></div>
+
+        <div class="row">
+            <div class="column">
+                <div id="vis3" class="vis-container" data-aos="fade-right"></div>
+            </div>
+            <div class="column">
+                <p data-aos="fade-left">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <p data-aos="fade-right" data-aos="fade-left">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+            <div class="column">
+                <div id="vis4" class="vis-container"></div>
+            </div>
         </div>
     </div>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
     <script type="text/javascript">
+        AOS.init();
+
         var specVis1 = "1_line.vg.json";
         vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -47,6 +93,10 @@
 
         var specVis3 = "3_area_line.vg.json";
         vegaEmbed('#vis3', specVis3, { "actions": false });
+
+        var specVis4 = "4_bar_chart.vg.json";
+        vegaEmbed('#vis4', specVis4, { "actions": false });
+
 
         // var specVis3 = "3_properties.vg.json";
         // vegaEmbed('#vis3', specVis3);

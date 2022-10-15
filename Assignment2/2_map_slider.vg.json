@@ -1,5 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "US Wildfires due to Lightning with Fire Size below 1 (1992-2010)",
+        "anchor": "middle",
+        "offset": 10
+    },
     "data": {
         "url": "https://raw.githubusercontent.com/AcidJxmmm/FIT3179/main/Assignment2/database/US_Lightning_Forest_Small_Fires.csv"
     },
@@ -7,10 +12,11 @@
         {
             "hconcat": [
                 {
-                    "width": 330,
-                    "height": 350,
-                    "title": "US Wildfires Type A due to Lightning (1992 - 2010)",
-                    "projection": { "type": "albersUsa" },
+                    "width": 365,
+                    "height": 300,
+                    "projection": {
+                        "type": "albersUsa"
+                    },
                     "layer": [
                         {
                             "data": {
@@ -27,17 +33,36 @@
                             }
                         },
                         {
-                            "transform": [{ "filter": { "param": "time_brush" } }],
+                            "transform": [
+                                {
+                                    "filter": {
+                                        "param": "time_brush"
+                                    }
+                                }
+                            ],
                             "encoding": {
-                                "longitude": { "field": "LONGITUDE", "type": "quantitative" },
-                                "latitude": { "field": "LATITUDE", "type": "quantitative" },
+                                "longitude": {
+                                    "field": "LONGITUDE",
+                                    "type": "quantitative"
+                                },
+                                "latitude": {
+                                    "field": "LATITUDE",
+                                    "type": "quantitative"
+                                },
                                 "color": {
                                     "field": "FIRE_SIZE",
                                     "type": "quantitative",
                                     "title": "Fire Size",
                                     "scale": {
                                         "type": "threshold",
-                                        "domain": [0, 0.2, 0.4, 0.6, 0.8, 1],
+                                        "domain": [
+                                            0,
+                                            0.2,
+                                            0.4,
+                                            0.6,
+                                            0.8,
+                                            1
+                                        ],
                                         "range": [
                                             "#fee5d9",
                                             "#fcbba1",
@@ -47,32 +72,59 @@
                                             "#cb181d",
                                             "#99000d"
                                         ]
+                                    },
+                                    "legend": {
+                                        "orient": "none",
+                                        "legendX": 70,
+                                        "legendY": 290,
+                                        "direction": "horizontal",
+                                        "titleAnchor": "middle"
                                     }
                                 },
                                 "tooltip": [
-                                    { "field": "Fire_Date", "type": "temporal", "title": "Date" },
+                                    {
+                                        "field": "Fire_Date",
+                                        "type": "temporal",
+                                        "title": "Date"
+                                    },
                                     {
                                         "field": "FIRE_SIZE",
                                         "type": "quantitative",
                                         "title": "Fire Size"
                                     },
-                                    { "field": "STATE", "type": "nominal", "title": "State" }
+                                    {
+                                        "field": "STATE",
+                                        "type": "nominal",
+                                        "title": "State"
+                                    }
                                 ]
                             },
                             "layer": [
-                                { "mark": { "type": "circle", "opacity": 0.4, "size": 15 } }
+                                {
+                                    "mark": {
+                                        "type": "circle",
+                                        "opacity": 0.4,
+                                        "size": 15
+                                    }
+                                }
                             ]
                         }
                     ]
                 },
                 {
-                    "width": 330,
-                    "height": 350,
+                    "width": 365,
+                    "height": 320,
                     "layer": [
                         {
                             "transform": [
                                 {
-                                    "bin": { "step": 0.2, "extent": [0, 1] },
+                                    "bin": {
+                                        "step": 0.2,
+                                        "extent": [
+                                            0,
+                                            1
+                                        ]
+                                    },
                                     "field": "FIRE_SIZE",
                                     "as": "fire size"
                                 }
@@ -82,10 +134,21 @@
                                 "x": {
                                     "field": "Fire_Date",
                                     "timeUnit": "yearmonth",
-                                    "scale": { "domain": { "param": "time_brush" } },
-                                    "axis": { "title": "", "tickCount": 5, "grid": false }
+                                    "scale": {
+                                        "domain": {
+                                            "param": "time_brush"
+                                        }
+                                    },
+                                    "axis": {
+                                        "title": "",
+                                        "tickCount": 5,
+                                        "grid": false
+                                    }
                                 },
-                                "y": { "aggregate": "count", "title": "Count of Wildfires" },
+                                "y": {
+                                    "aggregate": "count",
+                                    "title": "Count of Wildfires"
+                                },
                                 "color": {
                                     "field": "fire size",
                                     "scale": {
@@ -101,7 +164,12 @@
                                     },
                                     "legend": null
                                 },
-                                "tooltip": [{ "aggregate": "count", "title": "Number of Wildfires" }]
+                                "tooltip": [
+                                    {
+                                        "aggregate": "count",
+                                        "title": "Number of Wildfires"
+                                    }
+                                ]
                             }
                         },
                         {
@@ -116,8 +184,10 @@
                                 "yOffset": -90,
                                 "xOffset": -70
                             },
-                            "encoding": { 
-                                "text": { "field": "label" }
+                            "encoding": {
+                                "text": {
+                                    "field": "label"
+                                }
                             }
                         },
                         {
@@ -132,11 +202,12 @@
                                 "yOffset": -75,
                                 "xOffset": -68
                             },
-                            "encoding": { 
-                                "text": { "field": "label" }
+                            "encoding": {
+                                "text": {
+                                    "field": "label"
+                                }
                             }
                         }
-
                     ]
                 }
             ]
@@ -144,27 +215,50 @@
         {
             "width": 800,
             "height": 60,
-            "mark": { "type": "line", "color": "#fb6a4a" },
-            "title": "Use this line chart to filter out the data based on time",
+            "mark": {
+                "type": "line",
+                "color": "#fb6a4a"
+            },
+            "title": {
+                "text": "Use this line chart to filter out the number of Wildfires based on time",
+                "anchor": "middle",
+                "offset": 10
+            },
             "params": [
                 {
                     "name": "time_brush",
-                    "select": { "type": "interval", "encodings": ["x"] }
+                    "select": {
+                        "type": "interval",
+                        "encodings": [
+                            "x"
+                        ]
+                    }
                 }
             ],
             "encoding": {
                 "x": {
                     "field": "Fire_Date",
                     "timeUnit": "yearmonth",
-                    "axis": { "title": "", "format": "%Y" }
+                    "axis": {
+                        "title": "",
+                        "format": "%Y"
+                    }
                 },
                 "y": {
                     "aggregate": "count",
-                    "axis": { "tickCount": 3, "grid": false },
+                    "axis": {
+                        "tickCount": 3,
+                        "grid": false
+                    },
                     "title": "Count"
                 }
             }
         }
     ],
-    "config": { "title": { "font": "sans-serif", "fontSize": 14 } }
+    "config": {
+        "title": {
+            "font": "sans-serif",
+            "fontSize": 14
+        }
+    }
 }

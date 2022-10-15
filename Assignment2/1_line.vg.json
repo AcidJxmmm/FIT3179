@@ -1,39 +1,85 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Total number of each Fire Size Type (1992-2010)",
-    "description": "Stock prices of 5 Tech Companies over Time.",
-    "data": {
-      "url": "https://raw.githubusercontent.com/AcidJxmmm/FIT3179/main/Assignment2/database/US_Lightning_Forest_Fires_Main.csv"
-    },
-    "width": 700,
-    "height": 350,
-    "mark": {"type": "line", "point": {"filled": false, "fill": "white"}},
-    "encoding": {
-      "x": {
-        "timeUnit": "year",
-        "field": "Fire_Date",
-        "axis": {"tickCount": 6},
-        "title": "Year"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Total number of each Fire Size Type (1992-2010)",
+  "description": "Stock prices of 5 Tech Companies over Time.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/AcidJxmmm/FIT3179/main/Assignment2/database/US_Lightning_Forest_Fires_Grouped.csv"
+  },
+  "width": 800,
+  "height": 350,
+  "mark": {
+    "type": "line",
+    "point": {
+      "filled": true
+    }
+  },
+  "params": [
+    {
+      "name": "legend_interact",
+      "select": {
+        "type": "point",
+        "fields": [
+          "FIRE_SIZE_CLASS"
+        ]
       },
-      "y": {
+      "bind": "legend"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "timeUnit": "year",
+      "field": "Fire_Date",
+      "axis": {
+        "tickCount": 6
+      },
+      "title": "Year"
+    },
+    "y": {
+      "aggregate": "count",
+      "field": "FIRE_SIZE_CLASS",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "FIRE_SIZE_CLASS",
+      "type": "nominal",
+      "title": "Fire Size Class",
+      "scale": {
+        "scheme": "dark2"
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "legend_interact",
+        "value": 1
+      },
+      "value": 0.2
+    },
+    "tooltip": [
+      {
+        "field": "FIRE_SIZE_CLASS",
+        "title": "Fire Size Class"
+      },
+      {
         "aggregate": "count",
         "field": "FIRE_SIZE_CLASS",
-        "type": "quantitative"
+        "title": "Number of Wildfires"
       },
-      "color": {
-        "field": "FIRE_SIZE_CLASS",
-        "type": "nominal",
-        "title": "Fire Size Class",
-        "scale": {"scheme": "dark2"}
-      },
-      "tooltip": [
-        {"field": "FIRE_SIZE_CLASS", "title": "Fire Size Class"},
-        {
-          "aggregate": "count",
-          "field": "FIRE_SIZE_CLASS",
-          "title": "Number of Wildfires"
-        },
-        {"timeUnit": "year", "field": "Fire_Date", "title": "Year"}
-      ]
+      {
+        "timeUnit": "year",
+        "field": "Fire_Date",
+        "title": "Year"
+      }
+    ]
+  },
+  "config": {
+    "legend": {
+      "orient": "none",
+      "legendX": 70,
+      "legendY": 10,
+      "direction": "vertical",
+      "fillColor": "white",
+      "strokeColor": "darkgrey",
+      "padding": 10
     }
   }
+}
