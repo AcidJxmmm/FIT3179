@@ -53,6 +53,12 @@ div#vis4 {
     padding-right: 20px;
 }
 
+div#vis5 {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .column {
     float: left;
     width: 50%;
@@ -92,18 +98,24 @@ div#vis4 {
 }
 
 #two-columm-ha {
-    padding-top: 15px;
     text-align: right;
     padding-right: 20px;
     padding-left: 20px;
 }
 
 #two-columm-hb {
-    padding-top: 20px;
     text-align: left;
     padding-left: 20px;
 }
 
 #two-columm-p {
     padding-top: 10px;
+}
+
+.vega-bind {
+    text-align: center;
+}
+
+#bot_ram {
+    padding-bottom: 10px;
 }
