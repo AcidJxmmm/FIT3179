@@ -1,0 +1,129 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/AcidJxmmm/FIT3179/main/Assignment2/database/US_Lightning_Forest_Fires_Scatter.csv"
+    },
+    "title": {
+        "text": "Average Days to eliminate the Wildfire above Class D (2000-2010)",
+        "offset": 10
+    },
+    "width": 750,
+    "height": 350,
+    "config": {
+        "view": {
+            "strokeWidth": 0,
+            "step": 13
+        },
+        "axis": {
+            "domain": false
+        }
+    },
+    "params": [
+        {
+            "name": "Year_selection",
+            "value": 2010,
+            "bind": {
+                "input": "range",
+                "min": 2000,
+                "max": 2010,
+                "step": 1,
+                "name": "Year: "
+            }
+        },
+        {
+            "name": "Class_selection",
+            "value": "D",
+            "bind": {
+                "input": "select",
+                "options": [
+                    [
+                        "D"
+                    ],
+                    [
+                        "E"
+                    ],
+                    [
+                        "G"
+                    ],
+                    [
+                        "F"
+                    ]
+                ],
+                "labels": [
+                    "D",
+                    "E",
+                    "G",
+                    "F"
+                ],
+                "name": "Fire Class:  "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.Fire_Year == Year_selection"
+        },
+        {
+            "filter": "datum.FIRE_SIZE_CLASS == Class_selection"
+        }
+    ],
+    "mark": "rect",
+    "encoding": {
+        "x": {
+            "field": "Fire_Date",
+            "timeUnit": "date",
+            "type": "ordinal",
+            "title": "Day",
+            "axis": {
+                "labelAngle": 0,
+                "format": "%e",
+                "tickMinStep": 1
+            }
+        },
+        "y": {
+            "field": "Fire_Date",
+            "timeUnit": "month",
+            "type": "ordinal",
+            "title": "Month",
+            "sort": "descending"
+        },
+        "color": {
+            "field": "Days_to_extinguish_fire",
+            "aggregate": "average",
+            "type": "quantitative",
+            "title": null,
+            "scale": {
+                "type": "threshold",
+                "domain": [
+                    4,
+                    8,
+                    12,
+                    16,
+                    20
+                ],
+                "scheme": "oranges"
+            }
+        },
+        "tooltip": [
+            {
+                "field": "Days_to_extinguish_fire",
+                "aggregate": "average",
+                "format": ".1f",
+                "title": "Average days to eliminate fire"
+            },
+            {
+                "field": "FIRE_SIZE",
+                "type": "quantitative",
+                "aggregate": "average",
+                "format": ".1f",
+                "title": "Average fire size"
+            }, 
+            {
+                "field": "Fire_Date",
+                "type": "temporal",
+                "timeUnit": "monthdate",
+                "title": "Date"
+            }
+        ]
+    }
+}

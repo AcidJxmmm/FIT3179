@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Top 5 Lighting-sparked Fires in Florida (1992-2010)",
     "width": 320,
-    "height": 250,
+    "height": 210,
     "data": {
         "url": "https://raw.githubusercontent.com/AcidJxmmm/FIT3179/main/Assignment2/database/top_5_CA_wildfires%20-%20top_20_CA_wildfires.csv"
     },
